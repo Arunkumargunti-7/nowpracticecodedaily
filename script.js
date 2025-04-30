@@ -1,49 +1,51 @@
-// Handle Answer Section
-document.getElementById("updateAnswer").addEventListener("click", function() {
-  const answerInput = document.getElementById("answer").value;
-  if (answerInput !== "") {
-      document.getElementById("status").innerText = "Guess updated (not yet saved).";
+// Answer Update and Save
+document.getElementById("updateAnswer").addEventListener("click", () => {
+  const input = document.getElementById("answer").value;
+  document.getElementById("status").innerText = input
+    ? "Guess updated (not yet saved)."
+    : "Please enter an answer first.";
+});
+
+document.getElementById("saveAnswer").addEventListener("click", () => {
+  const input = document.getElementById("answer").value;
+  if (input) {
+    localStorage.setItem("answer", input);
+    document.getElementById("status").innerText = "Your answer has been saved!";
   } else {
-      document.getElementById("status").innerText = "Please enter an answer first.";
+    document.getElementById("status").innerText = "No answer to save.";
   }
 });
 
-document.getElementById("saveAnswer").addEventListener("click", function() {
-  const answerInput = document.getElementById("answer").value;
-  if (answerInput !== "") {
-      localStorage.setItem("answer", answerInput); // Save answer in localStorage
-      document.getElementById("status").innerText = "Your answer has been saved!";
+// Image Guess Update and Save
+document.getElementById("updateImage").addEventListener("click", () => {
+  const input = document.getElementById("imageName").value;
+  document.getElementById("imageStatus").innerText = input
+    ? "Image name updated (not yet saved)."
+    : "Please enter the image name.";
+});
+
+document.getElementById("saveImage").addEventListener("click", () => {
+  const input = document.getElementById("imageName").value;
+  if (input) {
+    localStorage.setItem("imageName", input);
+    document.getElementById("imageStatus").innerText = "Image name saved!";
   } else {
-      document.getElementById("status").innerText = "No answer to save.";
+    document.getElementById("imageStatus").innerText = "No image name to save.";
   }
 });
 
-// Handle Image Section
-document.getElementById("updateImage").addEventListener("click", function() {
-  const imageNameInput = document.getElementById("imageName").value;
-  if (imageNameInput !== "") {
-      document.getElementById("imageStatus").innerText = "Image name updated (not yet saved).";
-  } else {
-      document.getElementById("imageStatus").innerText = "Please enter the image name.";
-  }
+// Document Upload
+document.getElementById("documentUpload").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  document.getElementById("documentStatus").innerText = file
+    ? `Selected: ${file.name}`
+    : "No document selected.";
 });
 
-document.getElementById("saveImage").addEventListener("click", function() {
-  const imageNameInput = document.getElementById("imageName").value;
-  if (imageNameInput !== "") {
-      localStorage.setItem("imageName", imageNameInput); // Save image name in localStorage
-      document.getElementById("imageStatus").innerText = "Image name saved!";
-  } else {
-      document.getElementById("imageStatus").innerText = "No image name to save.";
-  }
-});
-
-// Handle Document Upload Section
-document.getElementById("documentUpload").addEventListener("change", function(e) {
+// Image Upload (optional: just show filename)
+document.getElementById("imageUpload").addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (file) {
-      document.getElementById("documentStatus").innerText = `Selected: ${file.name}`;
-  } else {
-      document.getElementById("documentStatus").innerText = "No document selected.";
+    document.getElementById("imageStatus").innerText = `New image selected: ${file.name}`;
   }
 });

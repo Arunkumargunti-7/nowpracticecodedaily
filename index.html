@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic GK Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic GK Site</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>General Knowledge Question</h1>
+  <div class="container">
+    <h1>Daily General Knowledge</h1>
 
-        <!-- Section 1: Answer Input -->
-        <div class="question-section">
-            <h2>Question: What is the capital of France?</h2>
-
-            <label for="answer">Answer:</label>
-            <input type="text" id="answer" placeholder="Enter your answer here" />
-
-            <button id="updateAnswer">Update</button>
-            <button id="saveAnswer">Save</button>
-            
-            <p id="status"></p> <!-- To show the "updated" message -->
-        </div>
-
-        <!-- Section 2: Image Guessing -->
-        <div class="image-section">
-            <h2>Guess the Image</h2>
-            <img id="imageDisplay" src="assets/images/sample.jpg" alt="Sample Image" />
-            <label for="imageName">Enter Image Name:</label>
-            <input type="text" id="imageName" placeholder="Enter image name" />
-
-            <button id="updateImage">Update</button>
-            <button id="saveImage">Save</button>
-
-            <p id="imageStatus"></p> <!-- Image Status Message -->
-        </div>
-
-        <!-- Section 3: Document Viewer & Upload -->
-        <div class="document-section">
-            <h2>Download Sample Document</h2>
-            <a href="assets/docs/sample.pdf" download>Download Sample PDF</a>
-
-            <h3>Upload Your Own Document</h3>
-            <input type="file" id="documentUpload" accept=".pdf, .docx, .txt" />
-            <p id="documentStatus"></p>
-        </div>
+    <!-- Section 1: Q&A -->
+    <div class="section">
+      <h2>Question: What is the capital of France?</h2>
+      <input type="text" id="answer" placeholder="Enter your answer" />
+      <div class="btn-group">
+        <button id="updateAnswer">Update</button>
+        <button id="saveAnswer">Save</button>
+      </div>
+      <p id="status"></p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Section 2: Image Guess -->
+    <div class="section">
+      <h2>Guess the Image</h2>
+      <img id="imageDisplay" src="assets/images/sample.jpg" alt="Sample Image" />
+      <input type="text" id="imageName" placeholder="Enter image name" />
+      <div class="btn-group">
+        <button id="updateImage">Update</button>
+        <button id="saveImage">Save</button>
+      </div>
+      <p id="imageStatus"></p>
+
+      <h3>Upload New Image</h3>
+      <input type="file" id="imageUpload" accept="image/*" />
+    </div>
+
+    <!-- Section 3: Documents -->
+    <div class="section">
+      <h2>Download/View Document</h2>
+      <a href="assets/docs/sample.pdf" download>Download Sample PDF</a>
+
+      <h3>Upload a Document</h3>
+      <input type="file" id="documentUpload" accept=".pdf, .docx, .txt" />
+      <p id="documentStatus"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
